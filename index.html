@@ -2,10 +2,11 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Save the World</title>
+    <title>Bees vs Humanity</title>
     <style>
       body{
-        background-color: #000;
+        background-image: url(bgImage.png);
+        background-size: cover;
       }
       h2{
         text-align: center;
@@ -61,32 +62,63 @@
         display: none;
         height: 332px;
         width: 500px;
-        margin: 0 auto;
+        margin: 100 auto;
       }
       #background-0{
-        background: url("images/background0.png") repeat scroll 0 0 transparent;
+        background: url("images/background-1.png") repeat scroll 0 0 transparent;
         display: block;
+        background-size: 1000px;
         height: 230px;
         position: absolute;
         width: 500px;
         z-index: 10;
       }
       #background-1{
-        background: url("images/background1.png") repeat-x scroll 0 48px transparent;
+        background: url("images/background-2.png") repeat-x scroll 0 48px transparent;
         display: block;
+        background-size: 525px;
         height: 332px;
+        position: absolute;
+        width: 500px;
+        z-index: 15;
+      }
+      #background-2{
+        background: url("images/background-5.png") repeat-x scroll 0 38px transparent;
+        display: block;
+        background-size: 450px;
+        height: 331px;
+        position: absolute;
+        width: 500px;
+        z-index: 14;
+      }
+      #background-3{
+        background: url("images/background-3.png") repeat-x scroll 0 38px transparent;
+        display: block;
+        background-size: 500px;
+        height: 331px;
         position: absolute;
         width: 500px;
         z-index: 11;
       }
-      #background-2{
-        background: url("images/background2.png") repeat-x scroll 0 38px transparent;
+      #background-4{
+        background: url("images/background-4.png") repeat-x scroll 0 38px transparent;
+        display: block;
+        background-size: 500px;
+        height: 331px;
+        position: absolute;
+        width: 500px;
+        z-index: 10;
+      }
+
+      /*#background-5{
+        background: url("images/background-5.png") repeat-x scroll 0 38px transparent;
         display: block;
         height: 331px;
         position: absolute;
         width: 500px;
-        z-index: 12;
-      }
+        z-index: 15;
+      }*/
+
       .missile_bullet{
         background: url("images/bullet1.png") no-repeat scroll 0 0 transparent;
         width:20px;
@@ -96,22 +128,39 @@
         z-index: 30;
       }
       #hud{
+        /*border: 1px solid black;*/
+        position: absolute;
+        left: 375px;
+        /*text-align: center;*/
+        top: 10px;
         height: 25px;
         width: 500px;
-        margin:  auto;
+        margin: auto;
         display: none;
       }
       #dist{
+        /*border: 1px solid black;*/
+        font-size: 30px;
         height: 15px;
         color: #fff;
-        padding: 5px 4px;
+        /*padding: 5px 14px;*/
         float: left;
       }
       #score{
+        font-size: 30px;
         height: 15px;
         color: #fff;
-        padding: 5px 4px;
+        /*padding: 5px 4px;*/
         float: right;
+      }
+      #level{
+        /*border: 1px solid black;*/
+        font-size: 30px;
+        height: 15px;
+        color: #fff;
+        /*padding: 5px 4px;*/
+        float: right;
+        margin-right: 70px;
       }
       #loading{
         color: #fff;
@@ -145,9 +194,11 @@
         text-align: center;
         padding:  44px 0 0 0;
         color: #fff;
+        border: 2px solid white;
       }
       #welcome h4{
         font-size: 25px;
+
       }
       /*#welcome #status{
         color: red;
@@ -201,7 +252,7 @@
   <body>
     <div id="container">
       <div id="welcome">
-        <h4>Save the World</h4>
+        <h4>Bees vs Humanity</h4>
         <p id="status"></p>
         <a id="start">Click Here to Start</a>
       </div>
@@ -217,6 +268,7 @@
       <div id="hud">
         <div id="dist">Distance :<span>0</span></div>
         <div id="score">Score :<span>0</span></div>
+        <div id="level">Level :<span>0</span></div>
       </div>
       <div id="controlls">
         <div id="left">

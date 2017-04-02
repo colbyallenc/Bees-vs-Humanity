@@ -168,9 +168,24 @@ var game = function(){
     this.background3.id = 'background-2';
     this.playground.appendChild(this.background3);
 
+    this.background4 = document.createElement('div');
+    this.background4.id = 'background-3';
+    this.playground.appendChild(this.background4);
+
+    this.background5 = document.createElement('div');
+    this.background5.id = 'background-4';
+    this.playground.appendChild(this.background5);
+
+    this.background6 = document.createElement('div');
+    this.background6.id = 'background-6';
+    this.playground.appendChild(this.background6);
+
     this.background1 = document.getElementById('background-0');
     this.background2 = document.getElementById('background-1');
     this.background3 = document.getElementById('background-2');
+    this.background4 = document.getElementById('background-3');
+    this.background5 = document.getElementById('background-4');
+    this.background6 = document.getElementById('background-5');
 
     //Flight Distance
     this.distance = 0;
@@ -191,6 +206,7 @@ var game = function(){
 
 //Player Object
 var player = function(){
+  this.lvl= 0
   this.score = 0;
   this.speedX = 2;
   this.speedY = 3;
@@ -391,16 +407,15 @@ var endGame = function(){
 
 //on load Event bind
 window.onload = function(){
+
   $('#start').click(function(){
     resetPlayers();
-    $('#welcome').hide();
+    $('#welcome').fadeOut();
     $('#playground').show();
     $('#controlls').show();
     preloadSprites(sprites.preloads);
     load();
   })
-
-
 };
 //Sprites load loop
 //Waits for all the sprites to be loaded before starting the game..
@@ -605,6 +620,19 @@ var run = function(){
 
     //Generate new enemies if the total on screen is < 3
     //and there are still more left to be killed
+if(level.distance > 500)
+  $('#level span').text(1);
+if(level.distance > 1000)
+  $('#level span').text(2);
+if(level.distance > 1500)
+  $('#level span').text(3);
+if(level.distance > 2000)
+  $('#level span').text(4);
+if(level.distance > 2500)
+  $('#level span').text(5);
+
+
+
     if(level.distance > 100)
       if(enemies.onscreen < enemies.maxInPage && enemies.dead < enemies.total){
         enemies.enemy.push(new enemy('ship'));
