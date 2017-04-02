@@ -177,8 +177,12 @@ var game = function(){
     this.playground.appendChild(this.background5);
 
     this.background6 = document.createElement('div');
-    this.background6.id = 'background-6';
+    this.background6.id = 'background-5';
     this.playground.appendChild(this.background6);
+
+    // this.background7 = document.createElement('div');
+    // this.background7.id = 'background-6';
+    // this.playground.appendChild(this.background7);
 
     this.background1 = document.getElementById('background-0');
     this.background2 = document.getElementById('background-1');
@@ -186,6 +190,7 @@ var game = function(){
     this.background4 = document.getElementById('background-3');
     this.background5 = document.getElementById('background-4');
     this.background6 = document.getElementById('background-5');
+    // this.background7 = document.getElementById('background-6');
 
     //Flight Distance
     this.distance = 0;
@@ -409,6 +414,8 @@ var endGame = function(){
 window.onload = function(){
 
   $('#start').click(function(){
+  //   $('#instructions').fadeIn();
+  // });
     resetPlayers();
     $('#welcome').fadeOut();
     $('#playground').show();

@@ -110,14 +110,26 @@
         z-index: 10;
       }
 
-      /*#background-5{
-        background: url("images/background-5.png") repeat-x scroll 0 38px transparent;
+      #background-5{
+        background: url("plane.gif") repeat-x scroll 0 38px transparent;
         display: block;
-        height: 331px;
+        background-size: 100px;
+        height: 100px;
         position: absolute;
-        width: 500px;
+        width: 100px;
+        z-index: 15;
+      }
+
+      /*#background-6{
+        background: url("plane.gif") repeat-x scroll 0 400px transparent;
+        display: block;
+        background-size: 200px;
+        height: 200px;
+        position: absolute;
+        width: 200px;
         z-index: 15;
       }*/
+
 
       .missile_bullet{
         background: url("images/bullet1.png") no-repeat scroll 0 0 transparent;
@@ -200,6 +212,10 @@
         font-size: 25px;
 
       }
+
+      #instructions {
+        display: none;
+      }
       /*#welcome #status{
         color: red;
         font-size: 22px;
@@ -255,6 +271,10 @@
         <h4>Bees vs Humanity</h4>
         <p id="status"></p>
         <a id="start">Click Here to Start</a>
+        <div id="instructions">
+          <p id="read1"> The humans have destroyed this earth. Now we must detroy them.</p>
+          <p id="read2"> Use the up arrow to move up. Use the down arrow to move down. Use the space bar to kill the humans </p>
+        </div>
       </div>
       <div id='playground'>
         <div id="loading">
@@ -278,6 +298,7 @@
         <div id="shoot"></div>
         <div class="clear"></div>
       </div>
+
 
     </div>
 
