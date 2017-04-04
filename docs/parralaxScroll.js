@@ -52,6 +52,7 @@ function resetPlayers(){
 }
 
 
+
 /***************************************** MEDIA TO BE PRELOADED ******************/
 // TODO: Add Sounds
 var sprites = {
@@ -209,6 +210,24 @@ var game = function(){
   }
 };
 
+var obj = document.createElement("audio");
+       obj.src="./bgsound.mp3";
+       obj.volume=0.40;
+       obj.autoPlay=false;
+       obj.preLoad=true;
+
+var impact = document.createElement("audio");
+              impact.src="./impactsound.wav";
+              impact.volume=0.70;
+              impact.autoPlay=false;
+              impact.preLoad=true;
+
+var explosion = document.createElement("audio");
+                explosion.src="./explosion.mo3";
+                explosion.volume=0.70;
+                explosion.autoPlay=false;
+                explosion.preLoad=true;
+
 //Player Object
 var player = function(){
   this.lvl= 0
@@ -269,6 +288,7 @@ var player = function(){
   this.shootem = function(){
     if(missiles.length < 1)
       missiles.push(new missile('bullet'));
+      impact.play();
   //console.log(missiles);
   }
 
@@ -277,6 +297,7 @@ var player = function(){
     this.top -= 100;
     this.left -= 100;//changed from 10
     this.posPlayer();
+    explosion.play();
 
   }
 }
@@ -313,6 +334,7 @@ var enemy = function(type){
     //$('#'+this.id).addClass('explode');
     $(this.enemy).addClass('explode');
     this.draw();
+    explosion.play();
   }
 
   this.draw = function(){
@@ -417,6 +439,7 @@ var winGame = function(){
 
 //on load Event bind
 window.onload = function(){
+  obj.play();
   $('#instructions').click(function(){
     $('#read2').slideToggle();
   });
