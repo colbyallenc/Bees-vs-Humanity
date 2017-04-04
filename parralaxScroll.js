@@ -180,9 +180,9 @@ var game = function(){
     this.background6.id = 'background-5';
     this.playground.appendChild(this.background6);
 
-    // this.background7 = document.createElement('div');
-    // this.background7.id = 'background-6';
-    // this.playground.appendChild(this.background7);
+    this.background7 = document.createElement('div');
+    this.background7.id = 'background-6';
+    this.playground.appendChild(this.background7);
 
     this.background1 = document.getElementById('background-0');
     this.background2 = document.getElementById('background-1');
@@ -190,7 +190,7 @@ var game = function(){
     this.background4 = document.getElementById('background-3');
     this.background5 = document.getElementById('background-4');
     this.background6 = document.getElementById('background-5');
-    // this.background7 = document.getElementById('background-6');
+    this.background7 = document.getElementById('background-6');
 
     //Flight Distance
     this.distance = 0;
@@ -287,10 +287,10 @@ var enemy = function(type){
 
   this.points = 25;
   this.type = type;
-  this.speed = rand(-7, -2);
+  this.speed = rand(-10, -2);
   this.live = false;
   this.id = 'enemy_'+this.type+ '_' + level.distance;
-
+// console.log(this.id);
   this.playground = document.getElementById('playground');
   this.enemy = document.createElement('div');
   this.enemy.id = this.id;
@@ -407,15 +407,21 @@ var endGame = function(){
 
 }
 
-
+var winGame = function(){
+  $('#playground').fadeOut().hide();
+  $('#controlls').fadeOut().hide();
+  $('#gamewin').show();
+  $('#gamewin').html('you win!');
+}
 /*****************************************MAIN FUNCTION CYCLE***********************************/
 
 //on load Event bind
 window.onload = function(){
+  $('#instructions').click(function(){
+    $('#read2').slideToggle();
+  });
 
   $('#start').click(function(){
-  //   $('#instructions').fadeIn();
-  // });
     resetPlayers();
     $('#welcome').fadeOut();
     $('#playground').show();
@@ -579,6 +585,10 @@ var run = function(){
 
         }
       }
+      // if(level.distance > 3000){
+      //   winGame();
+      // }
+
     }
     //Move the Missiles
     for(i in missiles){
@@ -637,6 +647,7 @@ if(level.distance > 2000)
   $('#level span').text(4);
 if(level.distance > 2500)
   $('#level span').text(5);
+
 
 
 
